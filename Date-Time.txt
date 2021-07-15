@@ -1,0 +1,11 @@
+1. Which class would you use to store your birthday in years, months, days, seconds, and nanoseconds?
+We can use the LocalDateTime class.
+
+2. Given a random date, how would you find the date of the previous Thursday?
+We can store the given date as a LocalDate object. Then, we could use the getDayOfWeek function to get the day of the week. With the day of the week, we can now determine how much to subtrack from the given date. Lastly, we can use the minusDays function to subtract the respective amount of days, such that we are left with the previous Thursday.
+
+3. What is the difference between a ZoneId and a ZoneOffset?
+ZoneId allows a user to select the desired timezone, such as "Europe/Paris". When used with the LocalTime or LocalDate functions, we can pass this ZoneId object with the respective argument to get the time in that particular region, e.g. ZoneId.of("Europe/Paris"). This differs from ZoneOffset, in which the purpose of it is to offset the UTC+0 time by a specified amount of time, such as four hours. For example, we can use the LocalTime now function and pass in ZoneOffset.ofHours(4) to get the time four hours past UTC+0.
+
+4. How would you convert an Instant to a ZonedDateTime? How would you convert a ZonedDateTime to an Instant?
+To convert an Instant to a ZonedDateTime, we could do the following. Create a ZonedDateTime object and set it equal to the instant object, then chain on the zoneId.of("specified time zone") function, where "specified time zone" is the desired time zone. To convert a ZonedDateTime to an Instant, we could do the following. Create an Instant object and set it equal to the ZonedDateTime object, then chain on the toInstant() function.
